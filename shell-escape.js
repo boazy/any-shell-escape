@@ -4,7 +4,7 @@ var util = require('util'),
 
 function escapePathSh(path) {
   if (!/^[A-Za-z0-9_\/-]+$/.test(path))
-    return '$' + util.inspect(path);
+    return ("'" + path.replace(/'/g, "'\"'\"'") + "'").replace(/''/g, '');
   else
     return path;
 }

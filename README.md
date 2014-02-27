@@ -25,7 +25,7 @@ console.log(escaped);
 yields (on POSIX shells):
 
 ```
-curl -v -H $'Location;' -H $'User-Agent: FoorBar\'s so-called "Browser"' $'http://www.daveeddy.com/?name=dave&age=24'
+curl -v -H 'Location;' -H 'User-Agent: FoorBar'"'"'s so-called "Browser"' 'http://www.daveeddy.com/?name=dave&age=24'
 ```
 
 or (on Windows):
@@ -50,7 +50,7 @@ console.log(escaped);
 yields (on POSIX shells):
 
 ```
-echo $'hello!' $'how are you doing $USER' $'"double"' $'\'single\''
+echo 'hello!' 'how are you doing $USER' '"double"' "'"'single'"'"
 ```
 
 or (on Windows, which doesn't support escaping echoed messages):
@@ -62,7 +62,7 @@ echo hello! how are you doing $USER "double" 'single'
 and when run on the shell:
 
 ```
-$ echo $'hello!' $'how are you doing $USER' $'"double"' $'\'single\''
+$ echo 'hello!' 'how are you doing $USER' '"double"' "'"'single'"'"
 hello! how are you doing $USER "double" 'single'
 ```
 

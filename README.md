@@ -1,5 +1,5 @@
-shell-escape
-============
+any-shell-escape
+================
 
 Escape and stringify an array of arguments to be executed on the shell
 
@@ -39,7 +39,7 @@ Which is suitable for being executed by the shell.
 ### Advanced Usage:
 
 ``` js
-var shellescape = require('shell-escape');
+var shellescape = require('any-shell-escape');
 
 var args = ['hello!', 'how are you doing $USER', '"double"', "'single'"];
 

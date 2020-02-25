@@ -3,17 +3,17 @@ var util = require('util'),
     escapePath;
 
 function escapePathSh(path) {
-  if (!/^[A-Za-z0-9_\/-]+$/.test(path))
-    return ("'" + path.replace(/'/g, "'\"'\"'") + "'").replace(/''/g, '');
+  if (/^[A-Za-z0-9_\/-]*$/.test(path))
+    return path.length ? path : "''";
   else
-    return path;
+    return ("'" + path.replace(/'/g, "'\"'\"'") + "'").replace(/''/g, '');
 }
 
 function escapePathWin(path) {
-  if (!/^[A-Za-z0-9_\/-]+$/.test(path))
-    return '"' + path.replace(/"/g, '""') + '"';
-  else
+  if (/^[A-Za-z0-9_\/-]+$/.test(path))
     return path;
+  else
+    return '"' + path.replace(/"/g, '""') + '"';
 }
 
 if (winCmd) {
@@ -27,7 +27,7 @@ module.exports = function(stringOrArray) {
 
   if (typeof(stringOrArray) == 'string') {
     return escapePath(stringOrArray);
-  } else {      
+  } else {
     stringOrArray.forEach(function(member) {
       ret.push(escapePath(member));
     });
@@ -40,7 +40,7 @@ if (winCmd) {
   module.exports.msg = function(x) {
     if (typeof(x) == 'string') {
       return x;
-    } else {       
+    } else {
       return x.join(' ');
     }
   };

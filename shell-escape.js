@@ -1,5 +1,4 @@
-var util = require('util'),
-    winCmd = /^win/.test(process.platform),
+var winCmd = /^win/.test(process.platform),
     escapePath;
 
 function escapePathSh(path) {
